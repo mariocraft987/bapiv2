@@ -12,9 +12,15 @@ const requestIp = require("request-ip");
 const DefaultProfilepic = require("./dataurls");
 const fs = require("fs");
 const Cryptr = require('cryptr');
+const { Webhook } = require('discord-webhook-node');
 
 const app = express();
 const cryptr = new Cryptr(process.env.cryptrkey);
+
+function log(text) {
+  const hook = new Webhook(process.env.adminlog);
+  hook.success('Admin', text);
+}
 
 //disable cors for all routes.
 app.use(cors());
@@ -693,6 +699,8 @@ app.post("/api/v2/giveAdmin", TokenauthMiddleware, async (req, res) => {
 
   db.push("admins", req.query.target);
 
+  log(`${res.user.username} just gave ${req.query.target} admin`);
+
   res.status(204).end();
 });
 
@@ -714,6 +722,9 @@ app.put(
     project.description = req.body.description;
     
     db.set(req.body.id, project);
+
+    log(`${res.user.username} just changed ${req.query.project}'s description`);
+
     res.status(204).end();
   }
 );
@@ -732,6 +743,9 @@ app.put("/api/v2/projectTitle/admin", TokenauthMiddleware, RequiresAdmin, async 
   project.title = req.body.title;
   
   db.set(req.body.id, project);
+
+  log(`${res.user.username} just changed ${req.query.project}'s title`);
+
   res.status(204).end();
 });
 
@@ -760,6 +774,8 @@ app.delete(
     const cdb = new Database(Databases.Comments);
 
     cdb.delete(id);
+
+    log(`${res.user.username} just deleted ${req.query.project}`);
 
     res.status(204).end();
   }
@@ -794,6 +810,8 @@ app.delete(
 
     db.set(req.query.project, comments);
 
+    log(`${res.user.username} just deleted a comment on ${req.query.project}`);
+
     res.status(204).end();
   }
 );
@@ -826,6 +844,8 @@ app.delete(
     ];
 
     db.set(req.query.username, comments);
+
+    log(`${res.user.username} just deleted a comment on ${req.query.username}`);
 
     res.status(204).end();
   }
@@ -860,6 +880,7 @@ app.put("/api/v2/setPFP/admin", TokenauthMiddleware, RequiresAdmin, async (req, 
   account.profilepicture = "uploaded";
   
   db.set(req.query.target, account);
+  log(`${res.user.username} just changed ${req.query.target}'s pfp`);
   res.status(204).end();
 });
 
@@ -878,6 +899,8 @@ app.put("/api/v2/setBio/admin", TokenauthMiddleware, RequiresAdmin, async (req, 
   
   db.set(req.query.target, account);
 
+  log(`${res.user.username} just changed ${req.query.target}'s Bio`);
+
   res.status(204).end();
 });
 
@@ -891,6 +914,8 @@ app.put(
 
     if (!req.body.picture)
       return res.status(400).json({ error: "InvalidRequest" });
+
+    log(`${res.user.username} just changed ${req.query.target}'s Thumbnail`);
 
     const pdb = new Database(Databases.Projects);
 
