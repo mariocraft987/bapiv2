@@ -19,7 +19,7 @@ const cryptr = new Cryptr(process.env.cryptrkey);
 
 function log(text) {
   const hook = new Webhook(process.env.adminlog);
-  hook.success('Admin', text);
+  hook.success('**Admin log**', 'Admin', text);
 }
 
 //disable cors for all routes.
