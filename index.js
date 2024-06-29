@@ -77,10 +77,14 @@ async function Generateprofilejson(user) {
   if (user.profilepicture === "default")
     result.profilepicture = DefaultProfilepic;
   else
-    result.profilepicture = fs.readFileSync(
-      `pfp/${user.username}.barkpfp`,
-      "utf-8"
-    );
+    try {
+      result.profilepicture = fs.readFileSync(
+        `pfp/${user.username}.barkpfp`,
+        "utf-8"
+      );
+    } catch {
+      result.profilepicture = DefaultProfilepic;
+    }
   return result;
 }
 
