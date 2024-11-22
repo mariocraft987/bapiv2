@@ -242,7 +242,8 @@ app.post("/api/v2/createAccount", async (req, res) => {
     profilepicture: "default",
     token: crypto.randomBytes(25).toString("hex"),
     projects: [],
-    ip: req.clientIp
+    ip: req.clientIp,
+    datejoined: new Date()
   });
 
   const ucdb = new Database(Databases.Usercomments);
