@@ -10,10 +10,6 @@
       {
         "src": "/(.*)",
         "dest": "index.js"
-      },
-      {
-        "src": "/feats",
-        "dest": "index.js"
       }
     ]
   }

@@ -116,6 +116,7 @@ app.get("/", (req, res) => {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://bark.dumorando.com/favicon.ico" type="image/png">
     <title>Bark API V3</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
