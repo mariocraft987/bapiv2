@@ -244,23 +244,6 @@ app.get("/", (req, res) => {
   res.send(home);
 });
 
-app.get("/feat", (req, res) => {
-  let features = `
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features</title>
-</head>
-<body>
-    
-</body>
-</html>
-  `;
-  res.send(features);
-});
-
 //route to create an account.
 app.post("/api/v2/createAccount", async (req, res) => {
   if (!req.query.username || !req.query.password)
