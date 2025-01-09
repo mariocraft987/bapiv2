@@ -1,5 +1,6 @@
 //Bark API
-//Written by dumorando.
+//Originally by dumorando.
+//Rewritten by AtomicBolts
 require("dotenv").config();
 const express = require("express");
 const crypto = require("crypto");
@@ -15,7 +16,9 @@ const Cryptr = require('cryptr');
 const { Webhook } = require('discord-webhook-node');
 
 const app = express();
-const cryptr = new Cryptr(process.env.cryptrkey);
+const cryptr = new Cryptr("superSuperSuperSecretKey");
+
+console.log(process.env.cryptrkey);
 
 function log(text) {
   const hook = new Webhook(process.env.adminlog);
@@ -128,7 +131,7 @@ app.get("/", (req, res) => {
               <img class="h-8 w-8" src="https://bark.dumorando.com/src/images/Logo.svg" alt="Logo">
             </div>
             <div class="hidden md:ml-6 md:flex md:space-x-8">
-              <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="/" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
               <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Features</a>
               <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Pricing</a>
               <a href="#" class="text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
@@ -146,10 +149,10 @@ app.get("/", (req, res) => {
           <p class="mt-4 text-lg leading-6 text-gray-600">With more features, better performance, and more.</p>
           <div class="mt-8 flex justify-center">
             <div class="inline-flex rounded-md shadow">
-              <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Documentation</a>
+              <a href="https://bark.dumorando.com/docs#/API" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Documentation</a>
             </div>
             <div class="ml-3 inline-flex">
-              <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50">Source code</a>
+              <a href="https://github.com/mariocraft987/bapiv3" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50">Source code</a>
             </div>
           </div>
         </div>
@@ -190,7 +193,6 @@ app.get("/", (req, res) => {
               </dt>
               <dd class="mt-2 ml-16 text-base text-gray-500">Reworked comment system and more.</dd>
             </div>
-            <br/>
             <div class="relative">
               <dt>
                 <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
@@ -213,7 +215,7 @@ app.get("/", (req, res) => {
                 </div>
                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">And more</p>
               </dt>
-              <dd class="mt-2 ml-16 text-base text-gray-500">lorem ipsum i dont know what to put here</dd>
+              <dd class="mt-2 ml-16 text-base text-gray-500">lorem ipsum i dont know what to put here YET</dd>
             </div>
           </dl>
         </div>
@@ -224,7 +226,7 @@ app.get("/", (req, res) => {
     <footer class="bg-white shadow">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex justify-between items-center">
-          <div class="text-gray-600">&copy; 2024 Bark team. All rights reserved.</div>
+          <div class="text-gray-600">&copy; 2023-2025 Bark team. All rights reserved.</div>
           <div class="flex space-x-6">
             <a href="#" class="text-gray-500 hover:text-gray-700">Privacy</a>
             <a href="#" class="text-gray-500 hover:text-gray-700">Terms</a>
