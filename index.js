@@ -113,7 +113,7 @@ app.get("/", (req, res) => {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bark Backend V2</title>
+    <title>Bark API V3</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
@@ -161,7 +161,7 @@ app.get("/", (req, res) => {
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
           <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
-          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">New features added in API v2</p>
+          <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">New features added in API v2-3</p>
           <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">We added a lot of new things.</p>
         </div>
         <div class="mt-10">
@@ -186,9 +186,34 @@ app.get("/", (req, res) => {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m0 0H6a9 9 0 018.73-6.88"></path>
                   </svg>
                 </div>
-                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">More featrues</p>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">More features</p>
               </dt>
               <dd class="mt-2 ml-16 text-base text-gray-500">Reworked comment system and more.</dd>
+            </div>
+            <br/>
+            <div class="relative">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <!-- Icon here -->
+                  <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Badge system</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">Badge system because WHY NOT????</dd>
+            </div>
+            <div class="relative">
+              <dt>
+                <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <!-- Icon here -->
+                  <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">And more</p>
+              </dt>
+              <dd class="mt-2 ml-16 text-base text-gray-500">lorem ipsum i dont know what to put here</dd>
             </div>
           </dl>
         </div>
